@@ -1,110 +1,209 @@
 <!DOCTYPE html>
 <!-- <html manifest="jackdawsampler.appcache"> -->
 <html>
-<head>
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="css/piano.css">
-  <link rel="stylesheet" href="css/apc25key.css">
+  <head>
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="css/piano.css" />
+    <link rel="stylesheet" href="css/apc25key.css" />
 
-  <script type="text/javascript" src="js/jackdaw.js"></script>
-  <script type="text/javascript" src="js/jackdaw.bufferloader.js" ></script>
-  <script type="text/javascript" src="js/jackdaw.storagemanager.js" ></script>
-  <script type="text/javascript" src="js/jackdaw.realtimeinteraction.js"></script>
-  <script type="text/javascript" src="js/jackdaw.midi.js"></script>
-  <script type="text/javascript" src="js/jackdaw.waveformdisplay.js"></script>
-  <script type="text/javascript" src="js/jackdaw.ui.js"></script>
-  <script type="text/javascript" src="js/recorder.js"></script>
-  <script type="text/javascript" src="js/jackdaw.scheduler.js"></script>
+    <script type="text/javascript" src="js/jackdaw.js"></script>
+    <script type="text/javascript" src="js/jackdaw.bufferloader.js"></script>
+    <script type="text/javascript" src="js/jackdaw.storagemanager.js"></script>
+    <script
+      type="text/javascript"
+      src="js/jackdaw.realtimeinteraction.js"
+    ></script>
+    <script type="text/javascript" src="js/jackdaw.midi.js"></script>
+    <script type="text/javascript" src="js/jackdaw.waveformdisplay.js"></script>
+    <script type="text/javascript" src="js/jackdaw.ui.js"></script>
+    <script type="text/javascript" src="js/recorder.js"></script>
+    <script type="text/javascript" src="js/jackdaw.scheduler.js"></script>
 
-  <title>Jackdaw Sampler</title>
-</head>
+    <title>Jackdaw Sampler</title>
+  </head>
 
-<body>
- <div id="sampler">
-  <div id="butts"></div>
-  <div id="functions_x">
-    <label for="x1"></label><button id="x1"></button>
-    <label for="x2"></label><button id="x2"></button>
-    <label for="x3"></label><button id="x3"></button>
-    <label for="x4"></label><button id="x4"></button>
-    <label for="x5"></label><button id="x5"></button>
-    <label for="x6"></label><button id="x6"></button>
-    <label for="x7"></label><button id="x7"></button>
-    <label for="x8"></label><button id="x8"></button>
-  </div>
-  <div id="functions_y">
-    <label for="pattern">Song / Pattern</label><button id="pattern" class="buttonRed"></button>
-    <label for="step">Step</label><button id="step"></button>
-    <label for="voice">Voice</label><button id="voice"></button>
-    <label for="sample">Sample</label><button id="sample"></button>
-    <label for="fx">Fx</label><button id="fx"></button>
-    <label for="shift">Shift</label><button id="shift"></button>
-    
-  </div>
-  
-  <div id="transport">
-    <button id="sustain">Sustain</button>
-    <button id="octup">Octup</button>
-    <button id="octdown">Octdown</button>
-    <button id="playstop">Stop</button>
-    <button id="record">Rec</button>
-    <button id="shift2">Shift</button>
-  </div>
+  <body>
+    <div id="sampler">
+      <div id="butts"></div>
+      <div id="functions_x">
+        <label for="x1"></label><button id="x1"></button>
+        <label for="x2"></label><button id="x2"></button>
+        <label for="x3"></label><button id="x3"></button>
+        <label for="x4"></label><button id="x4"></button>
+        <label for="x5"></label><button id="x5"></button>
+        <label for="x6"></label><button id="x6"></button>
+        <label for="x7"></label><button id="x7"></button>
+        <label for="x8"></label><button id="x8"></button>
+      </div>
+      <div id="functions_y">
+        <label for="pattern">Song / Pattern</label
+        ><button id="pattern" class="buttonRed"></button>
+        <label for="step">Step</label><button id="step"></button>
+        <label for="voice">Voice</label><button id="voice"></button>
+        <label for="sample">Sample</label><button id="sample"></button>
+        <label for="fx">Fx</label><button id="fx"></button>
+        <label for="shift">Shift</label><button id="shift"></button>
+      </div>
 
-  <div id="sliders">
-    <label for="slider1"></label><input id="slider1" type="range" min="0" max="128" value="0" oninput="Jackdaw.Ui.changeslider('slider1',this.value);" class="vertical">
-    <label for="slider2"></label><input id="slider2" type="range" min="0" max="128" value="0" oninput="Jackdaw.Ui.changeslider('slider2',this.value);" class="vertical">
-    <label for="slider3"></label><input id="slider3" type="range" min="0" max="128" value="0" oninput="Jackdaw.Ui.changeslider('slider3',this.value);" class="vertical">
-    <label for="slider4"></label><input id="slider4" type="range" min="0" max="128" value="0" oninput="Jackdaw.Ui.changeslider('slider4',this.value);" class="vertical">
-    <label for="slider5"></label><input id="slider5" type="range" min="0" max="128" value="0" oninput="Jackdaw.Ui.changeslider('slider5',this.value);" class="vertical">
-    <label for="slider6"></label><input id="slider6" type="range" min="0" max="128" value="0" oninput="Jackdaw.Ui.changeslider('slider6',this.value);" class="vertical">
-    <label for="slider7"></label><input id="slider7" type="range" min="0" max="128" value="0" oninput="Jackdaw.Ui.changeslider('slider7',this.value);" class="vertical">
-    <label for="slider8"></label><input id="slider8" type="range" min="0" max="128" value="0" oninput="Jackdaw.Ui.changeslider('slider8',this.value);" class="vertical">
-  </div>
+      <div id="transport">
+        <button id="sustain">Sustain</button>
+        <button id="octup">Octup</button>
+        <button id="octdown">Octdown</button>
+        <button id="playstop">Play/Stop</button>
+        <button id="record">Rec</button>
+        <button id="shift2">Shift</button>
+      </div>
 
-  
-  <ul id="piano">
-    <li><div id="key_1" class="anchor"></div></li>
-    <li><div id="key_3" class="anchor"></div><span id="key_2"></span></li>
-    <li><div id="key_5" class="anchor"></div><span id="key_4"></span></li>
-    <li><div id="key_6" class="anchor"></div></li>
-    <li><div id="key_8" class="anchor"></div><span id="key_7"></span></li>
-    <li><div id="key_10" class="anchor"></div><span id="key_9"></span></li>
-    <li><div id="key_12" class="anchor"></div><span id="key_11"></span></li>
-    <li><div id="key_13" class="anchor"></div></li>
-    <li><div id="key_15" class="anchor"></div><span id="key_14"></span></li>
-    <li><div id="key_17" class="anchor"></div><span id="key_16"></span></li>
-    <li><div id="key_18" class="anchor"></div></li>
-    <li><div id="key_20" class="anchor"></div><span id="key_19"></span></li>
-    <li><div id="key_22" class="anchor"></div><span id="key_21"></span></li>
-    <li><div id="key_24" class="anchor"></div><span id="key_23"></span></li>
-    <li><div id="key_25" class="anchor"></div></li>
-  </ul>
+      <div id="sliders">
+        <label for="slider1"></label
+        ><input
+          id="slider1"
+          type="range"
+          min="0"
+          max="128"
+          value="0"
+          oninput="Jackdaw.Ui.changeslider('slider1',this.value);"
+          class="vertical"
+        />
+        <label for="slider2"></label
+        ><input
+          id="slider2"
+          type="range"
+          min="0"
+          max="128"
+          value="0"
+          oninput="Jackdaw.Ui.changeslider('slider2',this.value);"
+          class="vertical"
+        />
+        <label for="slider3"></label
+        ><input
+          id="slider3"
+          type="range"
+          min="0"
+          max="128"
+          value="0"
+          oninput="Jackdaw.Ui.changeslider('slider3',this.value);"
+          class="vertical"
+        />
+        <label for="slider4"></label
+        ><input
+          id="slider4"
+          type="range"
+          min="0"
+          max="128"
+          value="0"
+          oninput="Jackdaw.Ui.changeslider('slider4',this.value);"
+          class="vertical"
+        />
+        <label for="slider5"></label
+        ><input
+          id="slider5"
+          type="range"
+          min="0"
+          max="128"
+          value="0"
+          oninput="Jackdaw.Ui.changeslider('slider5',this.value);"
+          class="vertical"
+        />
+        <label for="slider6"></label
+        ><input
+          id="slider6"
+          type="range"
+          min="0"
+          max="128"
+          value="0"
+          oninput="Jackdaw.Ui.changeslider('slider6',this.value);"
+          class="vertical"
+        />
+        <label for="slider7"></label
+        ><input
+          id="slider7"
+          type="range"
+          min="0"
+          max="128"
+          value="0"
+          oninput="Jackdaw.Ui.changeslider('slider7',this.value);"
+          class="vertical"
+        />
+        <label for="slider8"></label
+        ><input
+          id="slider8"
+          type="range"
+          min="0"
+          max="128"
+          value="0"
+          oninput="Jackdaw.Ui.changeslider('slider8',this.value);"
+          class="vertical"
+        />
+      </div>
 
-  <br style="clear:both;"><br>
+      <ul id="piano">
+        <li><div id="key_1" class="anchor"></div></li>
+        <li>
+          <div id="key_3" class="anchor"></div>
+          <span id="key_2"></span>
+        </li>
+        <li>
+          <div id="key_5" class="anchor"></div>
+          <span id="key_4"></span>
+        </li>
+        <li><div id="key_6" class="anchor"></div></li>
+        <li>
+          <div id="key_8" class="anchor"></div>
+          <span id="key_7"></span>
+        </li>
+        <li>
+          <div id="key_10" class="anchor"></div>
+          <span id="key_9"></span>
+        </li>
+        <li>
+          <div id="key_12" class="anchor"></div>
+          <span id="key_11"></span>
+        </li>
+        <li><div id="key_13" class="anchor"></div></li>
+        <li>
+          <div id="key_15" class="anchor"></div>
+          <span id="key_14"></span>
+        </li>
+        <li>
+          <div id="key_17" class="anchor"></div>
+          <span id="key_16"></span>
+        </li>
+        <li><div id="key_18" class="anchor"></div></li>
+        <li>
+          <div id="key_20" class="anchor"></div>
+          <span id="key_19"></span>
+        </li>
+        <li>
+          <div id="key_22" class="anchor"></div>
+          <span id="key_21"></span>
+        </li>
+        <li>
+          <div id="key_24" class="anchor"></div>
+          <span id="key_23"></span>
+        </li>
+        <li><div id="key_25" class="anchor"></div></li>
+      </ul>
 
+      <br style="clear: both" /><br />
 
- 
-  <br>
-  <div id="midistatus"></div>
-  
-<!--   <button id="sound1">play sound 1</button>
+      <br />
+      <div id="midistatus"></div>
+
+      <!--   <button id="sound1">play sound 1</button>
   <button id="sound2">play sound 2</button>
   <button id="sound3">play sound 3</button>
   <button id="sound4">play sound 4</button> -->
-  <div id="canvascontainer">
-  <svg id="svg"></svg>
-  <canvas id="waveform"></canvas>
-  </div>
-  
-  
+      <div id="canvascontainer">
+        <svg id="svg"></svg>
+        <canvas id="waveform"></canvas>
+      </div>
 
-    <script>
-        Jackdaw.init();
-
-        
-    </script>
-</div>
-</body>
+      <script>
+        Jackdaw.init()
+      </script>
+    </div>
+  </body>
+</html>
